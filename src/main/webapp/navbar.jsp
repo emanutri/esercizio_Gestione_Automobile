@@ -8,10 +8,9 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="automobile/ricerca.jsp">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <form class="nav-link" method="post" action="ListAutoServlet">
+      		<button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Home</button>
+   		</form>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -19,7 +18,6 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/automobile/ricerca.jsp">Cerca</a>
           <a class="dropdown-item" href="PrepareInsertAutoServlet">Inserisci nuovo elemento</a>
           <a class="dropdown-item" href="LogoutServlet">Logout</a>
         </div>

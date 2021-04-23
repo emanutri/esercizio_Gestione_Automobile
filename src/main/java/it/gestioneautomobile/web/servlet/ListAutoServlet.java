@@ -32,30 +32,23 @@ public class ListAutoServlet extends HttpServlet {
 		String marcaInputParam = request.getParameter("marca");
 		String modelloInputParam = request.getParameter("modello");
 		String cilindrataInputStringParam = request.getParameter("cilindrata");
-		String dataImmatricolazioneStringParam = request.getParameter("dataImmatricoloazione");
+		String dataImmatricolazioneStringParam = request.getParameter("dataImmatricolazione");
+
 		Date dataImmatricolazioneParsed = UtilityAutomobileForm
 				.parseDateImmatricolazioneFromString(dataImmatricolazioneStringParam);
 		Automobile autoInstance = new Automobile();
 
 		try {
 
-			if (!UtilityAutomobileForm.validateInput(marcaInputParam, modelloInputParam, cilindrataInputStringParam,
-					dataImmatricolazioneStringParam) || dataImmatricolazioneStringParam == null) {
-
-				request.setAttribute("listaAutomobiliAttribute",
-						MyServiceFactory.getAutomobileServiceInstance().listAll());
-			} else {
-
-				autoInstance.setMarca(marcaInputParam);
-				autoInstance.setModello(modelloInputParam);
-				if (!cilindrataInputStringParam.isEmpty()) {
-					autoInstance.setCilindrata(Integer.parseInt(cilindrataInputStringParam));
-				}
-				autoInstance.setDataImmatricolazione(dataImmatricolazioneParsed);
-
-				request.setAttribute("listaAutomobiliAttribute",
-						MyServiceFactory.getAutomobileServiceInstance().findByExample(autoInstance));
+			autoInstance.setMarca(marcaInputParam);
+			autoInstance.setModello(modelloInputParam);
+			if (cilindrataInputStringParam!= null && !cilindrataInputStringParam.isEmpty()) {
+				autoInstance.setCilindrata(Integer.parseInt(cilindrataInputStringParam));
 			}
+			autoInstance.setDataImmatricolazione(dataImmatricolazioneParsed);
+
+			request.setAttribute("listaAutomobiliAttribute",
+					MyServiceFactory.getAutomobileServiceInstance().findByExample(autoInstance));
 		} catch (Exception e) {
 
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo

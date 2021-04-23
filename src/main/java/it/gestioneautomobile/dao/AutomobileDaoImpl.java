@@ -68,9 +68,9 @@ public class AutomobileDaoImpl implements AutomobileDao {
 			query += " and a.cilindrata='" + example.getCilindrata() + "' ";
 		}
 
-		if (example.getDataImmatricolazione() != null && !example.getDataImmatricolazione().equals(null)) {
+		if (example.getDataImmatricolazione() != null) {
 			java.sql.Date data = new java.sql.Date(example.getDataImmatricolazione().getTime());
-			query += " and a.data_immatricolazione='" + data + "' ";
+			query += " and a.dataImmatricolazione='" + data + "' ";
 		}
 
 		TypedQuery<Automobile> tquery = entityManager.createQuery(query, Automobile.class);

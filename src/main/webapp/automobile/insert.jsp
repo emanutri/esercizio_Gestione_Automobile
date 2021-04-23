@@ -65,13 +65,14 @@
 						</div>
 
 					</div>
-					<form method="post" action="ListAutoServlet">
-				    	<button type="submit" name="submit" value="submit" id="submit"
-								class="btn  btn-sm btn-outline-secondary">Back</button>
-					</form>
+					
 					<button type="submit" name="submit" value="submit" id="submit"
 						class="btn btn-primary">Conferma</button>
 
+				</form>
+				<form method="post" action="ListAutoServlet">
+				    	<button type="submit" name="submit" value="submit" id="submit"
+								class="btn  btn-sm btn-outline-secondary">Back</button>
 				</form>
 				<!-- end card-body -->
 			</div>

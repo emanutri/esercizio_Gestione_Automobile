@@ -49,10 +49,6 @@
 					</form>
 			    	<form method="post" action="ExecuteDeleteAutoServlet">
 				    	
-				    	<a href="ListAutoServlet" class="btn  btn-sm btn-outline-secondary" style='width:80px'>
-			            <i class='fa fa-chevron-left'></i> Back
-				        </a>
-					   
 					    <button type="submit" name="elimina" value="elimina" id="elimina" class="btn btn-outline-danger btn-sm">Elimina</button>
 					    <input type="hidden" name ="inputId" value=<c:out value="${automobileDaEliminare.id}"/>>
 			    

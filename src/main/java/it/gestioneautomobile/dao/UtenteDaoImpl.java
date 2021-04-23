@@ -54,11 +54,11 @@ public class UtenteDaoImpl implements UtenteDao {
 
 	@Override
 	public Utente loginUser(String usernameInput, String passwordInput) {
-		TypedQuery<Utente> query = entityManager.createQuery("from Utente u where u.username=?1 and u.password =?2",
+		TypedQuery<Utente> query = entityManager.createQuery("from Utente u where u.username=?1 and u.password =?2 and u.stato = 'ATTIVO'",
 				Utente.class);
 		query.setParameter(1, usernameInput);
 		query.setParameter(2, passwordInput);
-		return query.getSingleResult();
+		return query.getResultStream().findFirst().orElse(null);
 	}
 
 }
